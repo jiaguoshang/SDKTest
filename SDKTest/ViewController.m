@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <SDKDemo/SDKDemo.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface ViewController ()
 
@@ -27,6 +28,12 @@
     testBtn.center = self.view.center;
     self.testBtn = testBtn;
     
+    [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            
+            return nil;
+        }];
+    }];
 }
 
 - (void)testAction:(UIButton *)button
